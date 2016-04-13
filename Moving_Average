@@ -1,0 +1,59 @@
+// 2. Moving Average:
+// 示例：
+// 假设size = 3
+// next(1.0) 返回 1.0
+// next(2.0) 返回 1.5
+// next(3.0) 返回 2.0
+// next(4.0) 返回 3.0
+// next(11.0)返回 6.0
+	
+class MovingAverage {
+  // TODO: fill in code here
+  
+  public MovingAverage(final int size) {
+    // TODO: fill in code here
+  }
+  
+  public double next(final double val) {
+    // TODO: fill in code here
+  }
+}
+
+Google 电面面经
+
+
+
+
+class MovingAverage {
+  // TODO: fill in code here
+  private:
+    float avg;
+    int windowSize;
+    int size;
+    queen<int> samples;
+    
+  
+  public MovingAverage(final int size) {
+    // TODO: fill in code here
+    avg = 0;
+    this.size = size;
+    windowSize = 0;
+  }
+  
+  public double next(final double val) {
+    // TODO: fill in code here
+    if(windowSize < size) {
+        samples.push(val);
+        avg = (avg * windowSize + val) / (windowSize+1);
+        windowSize++;
+        return avg;
+    }
+    else{
+        double pre = samples.front();
+        samples.pop();
+        samples.push(val);
+        avg = (avg * windowSize + val - pre) /windowSize;
+        return avg;
+    }
+  }
+}
